@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import style from './FriendListStyle.module.css';
-import clsx from 'clsx';
 
 export const FriendList = ({ friends }) => {
   return (
@@ -8,10 +7,9 @@ export const FriendList = ({ friends }) => {
       {friends.map(friend => (
         <li className={style.item} key={friend.id}>
           <span
-            className={clsx(style.status, {
-              [style.online]: friend.isOnline,
-              [style.offline]: !friend.isOnline,
-            })}
+            className={`${style.status} ${
+              friend.isOnline ? style.online : style.offline
+            }`}
           ></span>
           <img
             className={style.avatar}
